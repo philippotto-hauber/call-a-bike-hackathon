@@ -64,7 +64,6 @@ dat_rental_zone_hh = dat_rental_zone_hh[['NAME', 'LATITUDE', 'LONGITUDE']]
 
 
 #%% plot bike station locations
-import pickle
 fig, ax = plt.subplots()
 
 plz_shape_df_hh.plot(ax=ax, color='orange', alpha=0.8)
@@ -99,10 +98,8 @@ plt.savefig('./plots/bike_stations_HH.png')
 
 
 # %% save plot data to file
-import pickle
-with open('./plots/data/bike_stations_HH', 'wb') as file:
-    pickle.dump(plz_shape_df_hh, file)
-    pickle.dump(dat_rental_zone_hh, file)
 
-
-# %%
+plz_shape_df_hh.to_file("./plots/data/bike_stations_HH/plz_shape_df_hh.shp", 
+                       index=False)
+dat_rental_zone_hh.to_csv("./plots/data/bike_stations_HH/dat_rental_zone_hh.csv",
+                          index=False)
