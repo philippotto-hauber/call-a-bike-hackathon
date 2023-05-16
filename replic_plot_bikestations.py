@@ -1,5 +1,6 @@
 # This code reproduces the plot of bike stations in HH
-# by loading the required data from bespoke files
+# by loading the required data that has been comitted to the repo
+# and should thus be reproducible
 
 import geopandas as gpd
 import pandas as pd
