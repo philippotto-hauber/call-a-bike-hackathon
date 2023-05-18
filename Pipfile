@@ -9,6 +9,7 @@ geopandas = "*"
 matplotlib = "*"
 plotly = "*"
 tabulate = "*"
+dataframe-image = "*"
 
 [dev-packages]
 ipykernel = "*"
