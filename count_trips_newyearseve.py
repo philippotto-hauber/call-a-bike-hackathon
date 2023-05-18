@@ -7,6 +7,7 @@
 #%% libs
 import matplotlib.pyplot as plt
 import pandas as pd
+import dataframe_image as dfi
 
 #%% read data 
 dat_trips = pd.read_csv('./data/biketrip_data.csv')
@@ -51,6 +52,5 @@ print(len(dat_trips_newyearseve)/len(dat_trips)* 100)
 #%% count by year
 dat_trips_newyearseve_count = dat_trips_newyearseve.rename(columns = {'datetime_from': 'n_trips'}).groupby('year')[['n_trips']].count()
 
-# %% export result as markdown table
-dat_trips_newyearseve_count.to_markdown(buf = './tables/n_trips_newyearseve.md', 
-                                              index = True)
+#%% export results table as img
+dfi.export(dat_trips_newyearseve_count, './tables/n_trips_newyearseve.png')
