@@ -31,16 +31,16 @@ dat_trips.info(show_counts=True)
 dat_trips['is_midnight_owl'] = dat_trips.date_from < dat_trips.date_to
 
 #%% subset rows of original df
-dat_trips_midnight = dat_trips[dat_trips['is_midnight_owl']][['datetime_from', 'is_midnight_owl']]
+dat_trips_midnight = dat_trips[dat_trips['is_midnight_owl']][['datetime_to', 'is_midnight_owl']]
 
 #%% calculate auxiliary columns 
-dat_trips_midnight['year'] = dat_trips_midnight.datetime_from.dt.year
-dat_trips_midnight['month'] = dat_trips_midnight.datetime_from.dt.month
-dat_trips_midnight['day'] = dat_trips_midnight.datetime_from.dt.day
+dat_trips_midnight['year'] = dat_trips_midnight.datetime_to.dt.year
+dat_trips_midnight['month'] = dat_trips_midnight.datetime_to.dt.month
+dat_trips_midnight['day'] = dat_trips_midnight.datetime_to.dt.day
 
 
 #%% filter for those trips starting on new year's eve (and thus ending on Jan 1)
-dat_trips_midnight['is_newyears_eve'] = (dat_trips_midnight['month'] == 12) & (dat_trips_midnight['day'] == 31)
+dat_trips_midnight['is_newyears_eve'] = (dat_trips_midnight['month'] == 1) & (dat_trips_midnight['day'] == 1)
 dat_trips_newyearseve = dat_trips_midnight.loc[dat_trips_midnight.is_newyears_eve, :]
 
 #%% count relative occurence of new year's eve trips
@@ -50,7 +50,9 @@ print(len(dat_trips_newyearseve)/len(dat_trips)* 100)
 
 
 #%% count by year
-dat_trips_newyearseve_count = dat_trips_newyearseve.rename(columns = {'datetime_from': 'n_trips'}).groupby('year')[['n_trips']].count()
+dat_trips_newyearseve_count = dat_trips_newyearseve.rename(columns = {'datetime_to': 'n_trips'}).groupby('year')[['n_trips']].count()
+dat_trips_newyearseve_count
 
 #%% export results table as img
 dfi.export(dat_trips_newyearseve_count, './tables/n_trips_newyearseve.png')
+# %%
