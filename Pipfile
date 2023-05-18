@@ -8,6 +8,7 @@ requests = "*"
 geopandas = "*"
 matplotlib = "*"
 plotly = "*"
+tabulate = "*"
 
 [dev-packages]
 ipykernel = "*"
