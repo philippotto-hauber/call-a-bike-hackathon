@@ -2,35 +2,47 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-#%% read data and transform
-dat_trips = pd.read_csv('./data/biketrip_data.csv', 
-                        nrows = 200000)
+#%% read data 
+dat_trips = pd.read_csv('./data/biketrip_data.csv')
 
+#%% transform columns to datetime objects
 dat_trips.date_to = pd.to_datetime(dat_trips.date_to, format = '%Y-%m-%d')
 dat_trips.date_from = pd.to_datetime(dat_trips.date_from, format = '%Y-%m-%d')
 
-#%% Calculate those trips that end the day after they started!
-dat_trips['is_midnight_owl'] = dat_trips.date_from < dat_trips.date_to
+#%% 
+dat_trips.info(show_counts=True)
 
-dat_trips_midnight = dat_trips[dat_trips['is_midnight_owl']]
-dat_trips_midnight[['datetime_from', 'datetime_to']]
-# try and do this in one step
-#dat_trips.loc('is_midnight_owl', 'datetime_from') -> returns error
+#%% add day of the week as column
+dat_trips['weekday'] = dat_trips['date_from'].dt.strftime('%A')
 
-#%% plot number of trips per hour 
-
-plt.plot(dat_trips['hour_from'].value_counts().sort_index())
-
-#%% grouped count by day of the week
-dat_trips['weekday'] = dat_trips['date_from'].apply(lambda x: x.strftime('%A'))
+#%% plot
 dat_plot = dat_trips.groupby('weekday')['hour_from'].value_counts().sort_index().reset_index()
-
-for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']:
+plot_colors =  {'Monday': 'darkred', 
+                'Tuesday': 'chocolate',
+                'Wednesday': 'coral',
+                'Thursday': 'darkorchid',
+                'Friday': 'royalblue',
+                'Saturday': 'navy',
+                'Sunday': 'black'}
+plt.figure(figsize=(15,8))
+for day in plot_colors.keys():
     plt.plot(dat_plot[dat_plot['weekday'] == day]['hour_from'], 
              dat_plot[dat_plot['weekday'] == day]['count'], 
-             label = day)
-    
+             label = day,
+             color = plot_colors[day],
+             alpha = 1.0,
+             linestyle = 'solid')   
 
-plt.legend()
-plt.show()
+plt.legend(loc = 'upper left')
+plt.xticks(range(0,23, 3), 
+           list(map(lambda x: str(x) + ':00', 
+                    range(0, 23, 3))),
+           rotation = 0)
+plt.title('Number of bike rides by time of day')
+plt.savefig('./plots/trips_by_weekday.png')
 
+
+# %% save plot data to file
+dat_plot.to_csv("./plots/data/trips_weekday/dat_trips_by_weekday.csv",
+                          index=False)
+# %%
