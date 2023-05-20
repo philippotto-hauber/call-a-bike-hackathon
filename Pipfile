@@ -10,6 +10,7 @@ matplotlib = "*"
 plotly = "*"
 tabulate = "*"
 dataframe-image = "*"
+seaborn = "*"
 
 [dev-packages]
 ipykernel = "*"
