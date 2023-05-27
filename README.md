@@ -11,5 +11,7 @@ Python code analysing DB's Call-a-Bike data for the CorrelAid LC-Rheinmain hacka
 
 ## How many poor souls spent the first minutes of the new year on a Call-a-bike? 
 
+For each year in the dataset, the following table counts the number of trips that started on December 31 of the previous year and ended on January 1 of that year:
+
 ![alt text](./tables/n_trips_newyearseve.png)
 
