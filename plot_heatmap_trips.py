@@ -8,7 +8,7 @@ import plotly.express as px
 
 #%% load data
 
-dat_raw = pd.read_csv('./data/biketrip_data.csv', nrows = 200000)
+dat_raw = pd.read_csv('./data/biketrip_data.csv')
 dat_stations = dat_raw[['start_station_id', 'end_station_id', 'datetime_from']]
 
 # %% load rental zone data to get full name of stations
