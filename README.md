@@ -19,3 +19,5 @@ For each year in the dataset, the following table counts the number of trips tha
 The following table lists the top 10 routes (`start` to `end`) by number of trips (`n_trips`). It also includes the cumulative share of the total observations accounted for by those routes (`cum_share`) as well as the share of missing observations, i.e. days without any recorded trips (`share_NaN`) in relation to the entire sample period:
 
 ![alt text](./tables/top10_trips_stations.png)
+
+For an interactive heatmap showing the number of trips for all combinations of start and end stations, download the following file: `plots/heatmap_trips.html`
