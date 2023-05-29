@@ -46,6 +46,9 @@ end_id_with_missings = (dat_stations_merged['end_station_id']
 id_missing = np.unique([start_id_with_missings, end_id_with_missings])
 print(id_missing)
 
+share_obs_id_missing = dat_stations_merged[(dat_stations_merged['start_station_id'].isin(id_missing)) | (dat_stations_merged['end_station_id'].isin(id_missing))].shape[0] / dat_stations_merged.shape[0]
+print(share_obs_id_missing)
+
 #%% drop stations with no name
 dat_stations = dat_stations_merged.dropna().drop(columns = ["start_station_id", "end_station_id"])
 dat_stations.info(show_counts = True)
