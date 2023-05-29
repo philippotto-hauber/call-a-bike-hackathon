@@ -15,3 +15,7 @@ For each year in the dataset, the following table counts the number of trips tha
 
 ![alt text](./tables/n_trips_newyearseve.png)
 
+## Top 10 pairs of start and end stations by number of trips
+The following table lists the top 10 routes (`start` to `end`) by number of trips (`n_trips`). It also includes the cumulative share of the total observations accounted for by those routes (`cum_share`) as well as the number of missing observations, i.e. days without any recorded trips (`share_NaN`), over the entire sample period:
+
+![alt text](./tables/top10_trips_stations.png)
