@@ -1,3 +1,7 @@
+# This code reproduces the heatmap of number trips between all combinations of stations.
+# To generate the plot, it loads the required data that has been comitted to the repo
+# and should thus be reproducible by anyone with access to the GitHub repo
+
 #%% libs
 import pandas as pd
 import plotly.express as px

@@ -1,3 +1,7 @@
+# This code reproduces the plot of bike trips by day of the week 
+# by loading the required data that has been comitted to the repo
+# and should thus be reproducible by anyone with access to the GitHub repo
+
 #%% libs
 import matplotlib.pyplot as plt
 import pandas as pd
