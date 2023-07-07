@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "add486ba4dca934c5dbede478f8f0b016cabeb762865ceab5f05d9321f41db17"
+            "sha256": "9f0c74782a6dec0d037f8fe12fe7eb2b3790d6389630407094dcb91a95001011"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -277,6 +277,14 @@
             "markers": "platform_system == 'Windows'",
             "version": "==0.4.6"
         },
+        "colorcet": {
+            "hashes": [
+                "sha256:51455a20353d12fac91f953772d8409f2474e6a0db1af3fa4f7005f405a2480b",
+                "sha256:8daff01824ee9935fdf762d15c444a67d3e361ad4f8b738ad59ac9bf38f30600"
+            ],
+            "markers": "python_version >= '2.7'",
+            "version": "==3.0.1"
+        },
         "contourpy": {
             "hashes": [
                 "sha256:052cc634bf903c604ef1a00a5aa093c54f81a2612faedaa43295809ffdde885e",
@@ -514,6 +522,14 @@
             "index": "pypi",
             "version": "==0.13.2"
         },
+        "holoviews": {
+            "hashes": [
+                "sha256:45c568ae57a43af73893a093e6fade96b7713cbb0fe6fff46426a6b613122746",
+                "sha256:866d431e3017e94e8a637dc5e113487c2ada2a113098b1bd3bcd39bb0edd087d"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==1.16.2"
+        },
         "html2image": {
             "hashes": [
                 "sha256:2dcc01a36eaa0887b35c87f847628e57e830fcbc03852079e9e8812af26c78bc",
@@ -521,6 +537,14 @@
             ],
             "markers": "python_version >= '3.6' and python_version < '4.0'",
             "version": "==2.0.3"
+        },
+        "hvplot": {
+            "hashes": [
+                "sha256:6155e71cd417f3b5dbf8dd4bcba82a4fba25c13fe5c7b5de356f0f1a2f52a6b6",
+                "sha256:eff5fda9713134ac0df3d2648a11897ee40a09b1a2561ad33018802e18b87c22"
+            ],
+            "index": "pypi",
+            "version": "==0.8.4"
         },
         "idna": {
             "hashes": [
@@ -1188,6 +1212,14 @@
             ],
             "index": "pypi",
             "version": "==5.15.0"
+        },
+        "pyct": {
+            "hashes": [
+                "sha256:a4038a8885059ab8cac6f946ea30e0b5e6bdbe0b92b6723f06737035f9d65e8c",
+                "sha256:dd9f4ac5cbd8e37c352c04036062d3c5f67efec76d404761ef16b0cbf26aa6a0"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==0.5.0"
         },
         "pygments": {
             "hashes": [

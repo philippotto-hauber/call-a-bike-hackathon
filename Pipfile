@@ -12,6 +12,7 @@ tabulate = "*"
 dataframe-image = "*"
 seaborn = "*"
 panel = "*"
+hvplot = "*"
 
 [dev-packages]
 ipykernel = "*"
