@@ -18,20 +18,7 @@ plz_info = pd.read_csv(url_pzl_info, dtype={'plz': str})
 plz_info_hh = plz_info[plz_info.bundesland == 'Hamburg']
 
 #%% filter plz_shapes for Hamburg only
-
-def contains_string(x, my_string):
-    for i in x:
-        if my_string == i:
-            return True
-    return False
-
-id_hh = []
-for plz in plz_shape_df.plz:
-    #id_hh.append(plz in plz_info_hh.plz) -> doesn't work for some reason!
-    id_hh.append(contains_string(plz_info_hh.plz, plz))
-sum(id_hh)
-
-plz_shape_df_hh = plz_shape_df[id_hh]
+plz_shape_df_hh = plz_shape_df[plz_shape_df.plz.isin(plz_info_hh.plz)]
 plz_shape_df_hh.plot()
 
 # %% filter "mainland" Hamburg
